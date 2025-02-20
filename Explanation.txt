@@ -1,0 +1,89 @@
+##### 1. Streamlit #####
+📍 Where it is used?
+Used for building the user interface (UI) of the application.
+Provides an interactive web-based platform for users to input URLs and ask questions.
+🔹 How it is used?
+st.title() → Displays the application title.
+st.sidebar.text_input() → Captures user input URLs.
+st.button() → Processes URLs when clicked.
+st.write() and st.header() → Displays results.
+🎯 Purpose: Enables an easy-to-use UI for users without requiring frontend development.
+
+
+
+#####2. OpenAI API (GPT)#####
+📍 Where it is used?
+Used in the question-answering step.
+The GPT model generates answers based on retrieved documents.
+🔹 How it is used?
+OpenAI(temperature=0.9, max_tokens=500) initializes the model.
+The RetrievalQAWithSourcesChain retrieves relevant data and passes it to GPT for generating answers.
+🎯 Purpose:Provides AI-powered natural language responses to user queries.
+
+#####3. FAISS (Facebook AI Similarity Search)#####
+📍 Where it is used?
+Used to store and retrieve document embeddings efficiently.
+🔹 How it is used?
+FAISS.from_documents(docs, embeddings) → Creates a vector index from text chunks.
+The index is saved as a .pkl file and loaded when answering queries.
+🎯 Purpose:Enables fast similarity search for retrieving relevant document chunks.
+
+#####4. LangChain#####
+📍 Where it is used?
+Used for handling text processing, retrieval, and LLM integration.
+🔹 How it is used?
+RetrievalQAWithSourcesChain.from_llm() → Connects OpenAI with FAISS for retrieval.
+RecursiveCharacterTextSplitter → Splits large text into chunks.
+🎯 Purpose:Makes it easy to work with LLMs by managing context and retrieval.
+
+#####5. UnstructuredURLLoader#####
+📍 Where it is used?
+Used to extract text from the given URLs.
+🔹 How it is used?
+loader = UnstructuredURLLoader(urls=urls) → Loads and extracts data.
+data = loader.load() → Fetches text from the provided URLs.
+🎯 Purpose:Converts raw web content into usable text for further processing.
+
+######6. RecursiveCharacterTextSplitter#####
+📍 Where it is used?
+Used to break long documents into smaller chunks.
+🔹 How it is used?
+text_splitter.split_documents(data) → Splits extracted text into smaller, meaningful pieces.
+🎯 Purpose:Improves retrieval performance by handling long documents efficiently.
+
+
+######7. OpenAIEmbeddings#####
+📍 Where it is used?
+Used to convert text chunks into numerical embeddings for similarity search.
+🔹 How it is used?
+embeddings = OpenAIEmbeddings() initializes the embedding model.
+FAISS uses these embeddings to retrieve relevant content.
+🎯 Purpose:Transforms text into a searchable numerical format.
+
+
+#####8. Pickle#####
+📍 Where it is used?
+Used to save and load the FAISS index.
+🔹 How it is used?
+pickle.dump(vectorstore_openai, f) → Saves the FAISS index to a file.
+pickle.load(f) → Loads the index when needed.
+🎯 Purpose:Ensures that embeddings are saved and reused without reprocessing.
+
+####9. dotenv#####
+📍 Where it is used?
+Loads the OpenAI API key from the environment.
+🔹 How it is used?
+load_dotenv() reads environment variables.
+🎯 Purpose:Keeps API keys secure by not hardcoding them in the script.
+
+#####10. OS & Time Modules#####
+📍 Where it is used?
+OS: Used for file handling and checking FAISS index availability.
+Time: Used to track processing stages.
+🔹 How it is used?
+os.path.exists(file_path) → Checks if the FAISS index is available.
+time.sleep() → Can be used to delay execution if needed.
+🎯 Purpose:Handles file operations and process timing.
+
+
+
