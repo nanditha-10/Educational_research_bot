@@ -1,6 +1,6 @@
 # Educational_research_bot
 
-This script is a Streamlit-based AI-powered research tool called "NanduBot", designed to extract and analyze educational content from URLs using OpenAI's language models and FAISS-based vector search.
+This script is a Streamlit-based AI-powered research tool called "Nanditha's Bot", designed to extract and analyze educational content from URLs using OpenAI's language models and FAISS-based vector search.
 
 
 
