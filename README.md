@@ -27,7 +27,7 @@ OpenAI’s language model (GPT) generates a well-structured answer with cited so
 Displaying the Results:
 
 The answer is displayed along with sources if available.
----------------------------------------------------------------------------------
+
 <img width="431" alt="image" src="https://github.com/user-attachments/assets/2ef239c3-f56e-4e54-a755-208b8e42643c" />
 
 
